@@ -42,7 +42,7 @@ const editarEmpleado=(val)=>{
                             return
                       }
     
-                      if(edad==""){
+                      if(edad===""){
                         alert("ingrese la edad por favor");
                         return
                       }else if(isNaN(+edad)){
@@ -99,7 +99,7 @@ const update=()=>{
                                       return
                                   }
 
-                                  if(edad==""){
+                                  if(edad===""){
                                   alert("ingrese la edad por favor");
                                   return
                                   }else if(isNaN(+edad)){
@@ -269,7 +269,7 @@ const deleteEmpleado=(registro)=>{
         <div className="card-footer text-muted   bg-success text-white">
 
           {
-          editar==true ? 
+          editar===true ? 
           <div>
             <button onClick={update}  className="btn btn-dark m-2">Actualizar </button>
             <button onClick={limpiarCampos}  className="btn btn-dark m-2">Cancelar</button>
