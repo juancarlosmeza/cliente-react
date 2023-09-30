@@ -71,7 +71,7 @@ const editarEmpleado=(val)=>{
                       
 
    // Axios.post("http://localhost:3001/create",{
-Axios.post("https://node-servidor.onrender.com/create",{
+Axios.post("https://servidornode2.onrender.com/create",{
       nombre:nombre,
       edad:edad,
       pais:pais,
@@ -126,7 +126,7 @@ const update=()=>{
 
 //http://localhost:3001
 //Axios.put("http://localhost:3001/update",{
-  Axios.put("https://node-servidor.onrender.com/update",{
+  Axios.put("https://servidornode2.onrender.com/update",{
    
     id:id,
     nombre:nombre,
@@ -155,7 +155,7 @@ const update=()=>{
   //metodo para obtener los Empleados
   const getEmpleados=()=>{
      // Axios.get("http://localhost:3001/empleados").then((response)=>{
-      Axios.get("https://node-servidor.onrender.com/empleados").then((response)=>{
+      Axios.get("https://servidornode2.onrender.com/empleados").then((response)=>{
       // console.log(response.data)    
       setEmpleados(response.data);});
   }
@@ -193,7 +193,7 @@ const deleteEmpleado=(registro)=>{
       
      
          // Axios.delete(`http://localhost:3001/delete/${registro.id}`).then(()=>{
-            Axios.delete(`https://node-servidor.onrender.com/delete/${registro.id}`).then(()=>{
+            Axios.delete(`https://servidornode2.onrender.com/delete/${registro.id}`).then(()=>{
               getEmpleados();
               limpiarCampos();
               Swal.fire({
