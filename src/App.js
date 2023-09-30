@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 function App() {
   const[nombre,setNombre]=useState("")
-  const[edad,setEdad]=useState()
+  const[edad,setEdad]=useState("")
   const[pais,setPais]=useState("")
   const[cargo,setCargo]=useState("")
   const[experiencia,setExperiencia]=useState("")
@@ -37,7 +37,41 @@ const editarEmpleado=(val)=>{
 
 // metod para guardar los empleados
   const add=()=>{
-    Axios.post("https://node-servidor.onrender.com/create",{
+                      if (nombre===""){
+                            alert("complete el campo nombre");
+                            return
+                      }
+    
+                      if(edad==""){
+                        alert("ingrese la edad por favor");
+                        return
+                      }else if(isNaN(+edad)){
+                        alert("ingrese edad en  Numero")
+                        return
+                      }
+
+                      if (pais===""){
+                        alert("complete el campo Pais");
+                        return
+                      }
+
+                      if (cargo===""){
+                        alert("complete el campo Cargo");
+                        return
+                      }
+
+                      if (experiencia===""){
+                        alert("complete el campo Experiencia");
+                        return
+                      }
+    
+   
+        
+                      //http://localhost:3001/empleados
+                      
+
+   // Axios.post("http://localhost:3001/create",{
+Axios.post("https://node-servidor.onrender.com/create",{
       nombre:nombre,
       edad:edad,
       pais:pais,
@@ -56,11 +90,44 @@ const editarEmpleado=(val)=>{
             })
             
       })
-  }
+  }// fin metodo add
 
 // metod para modificar los empleados
 const update=()=>{
+                                    if (nombre===""){
+                                      alert("complete el campo nombre");
+                                      return
+                                  }
+
+                                  if(edad==""){
+                                  alert("ingrese la edad por favor");
+                                  return
+                                  }else if(isNaN(+edad)){
+                                  alert("ingrese edad en  Numero")
+                                  return
+                                  }
+
+                                  if (pais===""){
+                                  alert("complete el campo Pais");
+                                  return
+                                  }
+
+                                  if (cargo===""){
+                                  alert("complete el campo Cargo");
+                                  return
+                                    }
+
+                                    if (experiencia===""){
+                                    alert("complete el campo Experiencia");
+                                    return
+                                    }
+
+
+
+//http://localhost:3001
+//Axios.put("http://localhost:3001/update",{
   Axios.put("https://node-servidor.onrender.com/update",{
+   
     id:id,
     nombre:nombre,
     edad:edad,
@@ -78,7 +145,7 @@ const update=()=>{
         'success'
       )
       })
-}
+}// fin update
 
 
 
@@ -87,8 +154,7 @@ const update=()=>{
 
   //metodo para obtener los Empleados
   const getEmpleados=()=>{
-    //https://node-servidor.onrender.com/
-    //http://localhost:3001/empleados
+     // Axios.get("http://localhost:3001/empleados").then((response)=>{
       Axios.get("https://node-servidor.onrender.com/empleados").then((response)=>{
       // console.log(response.data)    
       setEmpleados(response.data);});
@@ -124,7 +190,10 @@ const deleteEmpleado=(registro)=>{
     confirmButtonText: 'Si, Eliminarlo!'
   }).then((result) => {
     if (result.isConfirmed) {
-          Axios.delete(`https://node-servidor.onrender.com/delete/${registro.id}`).then(()=>{
+      
+     
+         // Axios.delete(`http://localhost:3001/delete/${registro.id}`).then(()=>{
+            Axios.delete(`https://node-servidor.onrender.com/delete/${registro.id}`).then(()=>{
               getEmpleados();
               limpiarCampos();
               Swal.fire({
@@ -211,7 +280,7 @@ const deleteEmpleado=(registro)=>{
         </div>
     </div>
 <div style={{margin:"auto", marginTop:"20px"}}>
-    <table className="table table-striped " >
+    <table className="table table-striped   table-responsive"  >
       <thead  >
         <tr className="table-dark">
           <th scope="col">#</th>
