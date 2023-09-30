@@ -266,7 +266,7 @@ const deleteEmpleado=(registro)=>{
         </div>
 
 
-        <div className="card-footer text-muted   bg-success text-white">
+        <div className="card-footer text-muted    text-white">
 
           {
           editar===true ? 
