@@ -230,7 +230,7 @@ const deleteEmpleado=(registro)=>{
    
 
        <div className="card text-center">
-       <div className="card-header  bg-success text-white">
+       <div className="card-header  bg-info text-white">
          Gestion de Empleados
         </div>
         <div className="card-body">
@@ -266,7 +266,7 @@ const deleteEmpleado=(registro)=>{
         </div>
 
 
-        <div className="card-footer text-muted    text-white">
+        <div className="card-footer text-muted  bg-success  text-white">
 
           {
           editar===true ? 
